@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Общий список</title>
+</head>
+<body>
+    <h1>Общий список</h1>
+
+    {% block content %}
+
+        <form action="" method="get">
+
+            {{ form.search }}
+            {{ form.sort_field }}
+            <input type="submit">
+            {{ form.errors }}
+        </form>
+
+        <form action="" method="POST">
+            {{ gform }}<br>
+            <input type="submit"><br>
+        </form>
+
+        {% for article in object_list %}
+            {{ article.title }}<br>
+            {{ article.text }}<br>
+            {{ article.pub_date|date:"m - d - y" }}<br>
+            <br>
+        {% endfor %}
+    {% endblock %}
+</body>
+</html>
